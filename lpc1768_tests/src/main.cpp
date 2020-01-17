@@ -1,16 +1,12 @@
-#include <mbed.h>
+#include "mbed.h"
+
+Serial pc(USBTX, USBRX); // tx, rx
 
 int main()
 {
-
-  DigitalOut led(LED1);
-
+  pc.printf("Hello World!\n");
   while (1)
   {
-    // put your main code here, to run repeatedly:
-    led = 1;
-    wait(1);
-    led = 0;
-    wait(1);
+    pc.putc(pc.getc() + 1);
   }
 }
